@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+}
+
+@model List<Shop>
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model == null)
+        {
+            <h2>Is a null reference</h2>
+        }
+        else
+        {
+            @foreach (var shop in Model)
+            {
+                <tr>
+                    <th scope="row">@shop.Id</th>
+                    <td>@shop.Name</td>
+                    <td>@shop.Price</td>
+                    <td>@DateTime.Now</td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>
